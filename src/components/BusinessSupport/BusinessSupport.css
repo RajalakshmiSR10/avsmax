@@ -1,0 +1,80 @@
+
+/* Business Support auto-scroll */
+
+.business-scroll-window {
+  -webkit-mask-image: linear-gradient(
+    to bottom,
+    transparent 0%,
+    black 5%,
+    black 95%,
+    transparent 100%
+  );
+  mask-image: linear-gradient(
+    to bottom,
+    transparent 0%,
+    black 5%,
+    black 95%,
+    transparent 100%
+  );
+}
+
+.business-scroll-track {
+  width: 100%;
+  will-change: transform;
+}
+
+.business-scroll-up {
+  animation: businessSupportUp 45s linear infinite;
+}
+
+.business-scroll-down {
+  animation: businessSupportDown 45s linear infinite;
+}
+
+.business-scroll-window:hover .business-scroll-track {
+  animation-play-state: paused;
+}
+
+@keyframes businessSupportUp {
+  from {
+    transform: translateY(0);
+  }
+
+  to {
+    transform: translateY(calc(-50% - 8px));
+  }
+}
+
+@keyframes businessSupportDown {
+  from {
+    transform: translateY(calc(-50% - 8px));
+  }
+
+  to {
+    transform: translateY(0);
+  }
+}
+
+@media (max-width: 767px) {
+  .business-scroll-up {
+    animation-duration: 55s;
+  }
+
+  .business-scroll-down {
+    animation-duration: 55s;
+    animation-direction: reverse;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .business-scroll-up,
+  .business-scroll-down {
+    animation: none;
+  }
+
+  .business-scroll-window {
+    overflow: visible;
+    mask-image: none;
+    -webkit-mask-image: none;
+  }
+}
