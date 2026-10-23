@@ -10,6 +10,7 @@ import AOS from "aos";
 import "aos/dist/aos.css";
 
 import {
+  MessagesCircle,
   ArrowUpRight,
   CheckCircle2,
   Clock3,
@@ -36,7 +37,7 @@ const contactDetails = [
   {
     icon: Clock3,
     label: "Business hours",
-    value: "Monday – Saturday",
+    value: "Monday – Saturday ( 9:00 AM - 7:00 PM )",
   },
   {
     icon: MapPin,
@@ -156,17 +157,17 @@ export default function Contact() {
   return (
     <section
       id="contact"
-      className="relative isolate overflow-hidden bg-[#EAF3FA] px-5 py-20 sm:px-8 sm:py-24 lg:px-12 lg:py-28"
+      className="relative isolate overflow-hidden bg-[#1E356B] px-5 py-20 sm:px-8 sm:py-24 lg:px-12 lg:py-28"
     >
       {/* Background decoration */}
       <div
         aria-hidden="true"
-        className="pointer-events-none absolute -left-32 top-20 -z-10 h-80 w-80 rounded-full bg-blue-200/40 blur-[100px]"
+        className="pointer-events-none absolute -left-22 top-20 -z-10 h-80 w-80 rounded-full bg-white/50 blur-[80px]"
       />
 
       <div
         aria-hidden="true"
-        className="pointer-events-none absolute -right-20 bottom-0 -z-10 h-80 w-80 rounded-full bg-green-200/30 blur-[100px]"
+        className="pointer-events-none absolute -right-20 bottom-0 -z-10 h-80 w-80 rounded-full bg-white/50 blur-[80px]"
       />
 
       <div className="mx-auto max-w-7xl">
@@ -185,15 +186,16 @@ export default function Contact() {
             variants={sectionReveal}
             className="inline-flex items-center gap-2 rounded-full border border-[#1E356B]/10 bg-white px-4 py-2 text-xs font-bold tracking-[0.18em] text-[#27852C] shadow-sm"
           >
-            <span className="h-2 w-2 animate-pulse rounded-full bg-[#59B83F]" />
-            LET&apos;S CONNECT
+            <span  />
+            <MessagesCircle size={17}/>
+            LET'S CONNECT
           </motion.span>
 
           <motion.h2
             variants={sectionReveal}
-            className="mt-6 text-3xl font-extrabold tracking-tight text-[#1E356B] sm:text-4xl md:text-5xl"
+            className="mt-6 text-3xl font-extrabold tracking-tight text-[#FFFFFF] sm:text-4xl md:text-5xl"
           >
-            Let&apos;s Talk About
+            Let's Talk About
             <span className="mt-2 block text-[#27852C]">
               Your Business
             </span>
@@ -201,7 +203,7 @@ export default function Contact() {
 
           <motion.p
             variants={sectionReveal}
-            className="mx-auto mt-5 max-w-xl text-sm leading-7 text-slate-600 sm:text-base"
+            className="mx-auto mt-5 max-w-xl text-sm leading-7 text-slate-300 sm:text-base"
           >
             Have questions about taxation, compliance, or business
             advisory? Connect with AVS Max and let&apos;s find the right
@@ -672,12 +674,74 @@ export default function Contact() {
           transition={{
             duration: 0.6,
           }}
-          className="mt-8 flex flex-wrap items-center justify-center gap-2 text-center text-sm text-slate-500"
+          className="mt-8 flex flex-wrap items-center justify-center gap-2 text-center text-sm text-slate-300"
         >
-          <CheckCircle2 size={17} className="text-[#27852C]" />
+          <CheckCircle2 size={17} className="text-[#74ce79]" />
           Professional support for your business and compliance needs
         </motion.div>
       </div>
+      {/* Google Maps */}
+
+ <motion.div
+        initial={{ opacity: 0, scale: 0.96, y: 25 }}
+        whileInView={{ opacity: 1, scale: 1, y: 0 }}
+        viewport={{ once: true, amount: 0.2 }}
+        transition={{ duration: 0.7, delay: 0.15 }}
+        whileHover={{ y: -3 }}
+        className=" xl:mt-20 lg:mt-20 sm:mt-15 group relative mx-auto w-full overflow-hidden rounded-2xl border border-white/10 bg-[#EAF3FA]  p-2 shadow-[0_15px_50px_rgba(0,0,0,0.25)] md:w-[85%]"
+      >
+        {/* Top accent */}
+       
+
+        <iframe
+          title="AVS Max Office Location"
+          src="https://maps.google.com/maps?q=9.9184906,78.1339787&z=17&output=embed"
+          width="100%"
+          height="380"
+          style={{ border: 0 }}
+          className="mt-1 rounded-xl"
+          loading="lazy"
+          allowFullScreen
+          referrerPolicy="no-referrer-when-downgrade"
+        />
+      </motion.div>
+
+      {/* Animated Directions Button */}
+      <motion.div
+        initial={{ opacity: 0, x: 20 }}
+        whileInView={{ opacity: 1, x: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.5, delay: 0.35 }}
+        className="mx-auto mt-5 flex justify-center md:w-[85%] md:justify-end"
+      >
+        <motion.a
+          href="https://www.google.com/maps/place/AVS+Max/@9.9184906,78.1339787,17z"
+          target="_blank"
+          rel="noopener noreferrer"
+          whileHover={{
+            scale: 1.04,
+            y: -3,
+            boxShadow: "0px 10px 25px rgba(89,184,63,0.2)",
+          }}
+          whileTap={{ scale: 0.97 }}
+          className="group inline-flex items-center gap-3 rounded-xl hover:bg-[#59B83F]/80 px-6 py-3.5 font-medium text-white transition-colors duration-300 bg-[#59B83F]"
+        >
+          Get Directions
+
+          <motion.span
+            className="inline-flex"
+            animate={{ x: [0, 3, 0], y: [0, -2, 0] }}
+            transition={{
+              duration: 1.5,
+              repeat: Infinity,
+              ease: "easeInOut",
+            }}
+          >
+            <ArrowUpRight size={19} />
+          </motion.span>
+        </motion.a>
+      </motion.div>
+
     </section>
   );
 }

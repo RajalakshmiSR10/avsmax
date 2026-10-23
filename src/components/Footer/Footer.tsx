@@ -20,12 +20,12 @@ import {
 
 const quickLinks = [
   { name: "Home", href: "/" },
-  { name: "About Us", href: "/#about" },
-  { name: "Business Support", href: "/#business-support" },
-  { name: "Services", href: "/#services" },
-  { name: "Certifications", href: "/#certifications" },
-  { name: "News & Updates", href: "/#news" },
-  { name: "Contact Us", href: "/#contact" },
+  { name: "About Us", href: "/about" },
+
+  { name: "Services", href: "/services" },
+
+{name:"Resources",href:"/testimonials"},
+  { name: "Contact Us", href: "/contact" },
 ];
 
 const services = [
@@ -76,7 +76,7 @@ export default function Footer() {
     : itemVariants;
 
   return (
-    <footer className="relative isolate overflow-hidden bg-[#142950] text-white">
+    <footer className="relative isolate overflow-hidden bg-[#1E356B] text-white ">
       {/* Decorative background lighting */}
       <motion.div
         aria-hidden="true"
@@ -149,7 +149,7 @@ export default function Footer() {
               <ShieldCheck size={18} className="text-[#59B83F]" />
 
               <span className="text-sm font-semibold text-slate-100">
-                25+ Years of Experience
+              29+ Years of Experience
               </span>
             </motion.div>
           </motion.div>
@@ -344,6 +344,14 @@ export default function Footer() {
               >
                 avsmax.com
               </a>
+                <a
+                href="https://genzzi.in/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="transition-colors hover:text-white"
+              >
+                Developed by Genzzi
+              </a>
             </div>
           </div>
         </motion.div>
@@ -351,3 +359,7 @@ export default function Footer() {
     </footer>
   );
 }
+
+
+
+

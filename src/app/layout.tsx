@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Navbar from "@/components/Navbar/Navbar";
 import Background3D from "@/components/Background/Background3D";
 import "./globals.css";
+import Footer from "@/components/Footer/Footer";
 
 export const metadata: Metadata = {
   title: "AVS Max | Tax Consultancy & Business Advisors",
@@ -21,6 +22,7 @@ export default function RootLayout({
         <div className="relative z-10 min-h-screen bg-transparent">
           <Navbar />
           <main className="bg-transparent">{children}</main>
+          <Footer/>
         </div>
       </body>
     </html>
